@@ -6,7 +6,7 @@ import logo from '../../img/shop-icon.png'
 export default function Header() {
     return (
         <div className={style.header}>
-            <NavLink to="/main" activeClassName=""><img className={style.logo} src={logo}/></NavLink>
+            <NavLink to="/main" activeClassName=""><img className={style.logo} src={logo} alt="Error"/></NavLink>
             <span className={style.cart}>
                 <NavLink to="/cart" activeClassName="">Cart</NavLink>
             </span>
