@@ -1,0 +1,22 @@
+.header {
+    grid-area: h;
+    background: blue;
+    padding: 15px;
+}
+
+.cart {
+    background: red;
+    padding: 5px;
+    float: right;
+
+
+}
+
+.cart a {
+    text-decoration: none;
+
+}
+
+.logo {
+    width: 35px;
+}
