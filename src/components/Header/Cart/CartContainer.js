@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import Body from "./Body";
-import {addInCart} from "../../redux/mainReducer";
+import Cart from "./Cart";
+import {addInCart} from "../../../redux/mainReducer";
 
 let mapStateToProps = (state) => {
     return {
         items: state.mainPage.items,
-        totalPrice:state.mainPage
+        totalPrice: state.mainPage.totalPrice
     }
 }
 
@@ -18,4 +18,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

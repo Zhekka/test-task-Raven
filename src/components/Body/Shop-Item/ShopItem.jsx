@@ -4,6 +4,11 @@ import React from "react";
 
 export default function ShopItem(props) {
 
+
+    let actionClick = () => {
+        props.addInCart(props.price)
+    }
+
     return (<div className={style.item}>
         <div className={style.content}>
             <img className={style.logo} src={logo} alt="Error"/>
@@ -12,7 +17,8 @@ export default function ShopItem(props) {
             <div>Опис: {props.description}</div>
             <div>Ціна: {props.price} грн</div>
 
-            <button>Buy</button>
+            <button className={style.btn} onClick={actionClick}>Buy
+            </button>
         </div>
     </div>)
 }

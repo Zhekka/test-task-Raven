@@ -1,19 +1,19 @@
 import React from 'react'
 import './App.css';
-import Header from "./components/Header/Header";
 import {BrowserRouter, Route} from "react-router-dom";
-import Cart from "./components/Header/Cart/Cart";
 import BodyContainer from "./components/Body/BodyContainer";
+import HeadContainer from "./components/Header/HeadContainer";
+import CartContainer from "./components/Header/Cart/CartContainer";
 
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Header/>
+                <HeadContainer />
                 <div className="app-wrapper-content">
-                    <Route path='/main' render={() => <BodyContainer/>}/>
+                    <Route path='/main' render={() => <BodyContainer />}/>
 
-                    <Route path='/cart' render={() => <Cart/>}/>
+                    <Route path='/cart' render={() => <CartContainer/>}/>
 
                 </div>
             </div>

@@ -1,20 +1,16 @@
 .header {
     grid-area: h;
-    background: blue;
+    background: #5656f3;
     padding: 15px;
 }
-
 .cart {
-    background: red;
-    padding: 5px;
     float: right;
-
-
+    font-size: 19px;
 }
 
-.cart a {
-    text-decoration: none;
-
+.cart img {
+    float: right;
+    width: 40px;
 }
 
 .logo {
