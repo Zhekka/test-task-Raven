@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
 import Cart from "./Cart";
-import {addInCart} from "../../../redux/mainReducer";
+import {addCount, minusItem} from "../../../redux/mainReducer";
 
 let mapStateToProps = (state) => {
     return {
         items: state.mainPage.items,
+        cartItems: state.mainPage.cartItems,
         totalPrice: state.mainPage.totalPrice
     }
 }
@@ -12,9 +13,15 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addInCart: (body) => {
-            dispatch(addInCart(body))
+        addCount: (id) => {
+            dispatch(addCount(id))
+
+        },
+        minusItem: (id, price) => {
+            dispatch(minusItem(id, price))
+
         }
+
     }
 }
 

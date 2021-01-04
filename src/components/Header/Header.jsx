@@ -5,6 +5,7 @@ import logo from '../../img/shop-icon.png'
 import cart from '../../img/cart-img.png'
 
 export default function Header(props) {
+
     return (
         <div className={style.header}>
             <NavLink to="/main" activeClassName=""><img className={style.logo} src={logo} alt="Home"/></NavLink>

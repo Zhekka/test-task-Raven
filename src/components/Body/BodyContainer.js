@@ -12,8 +12,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addInCart: (body) => {
-            dispatch(addInCart(body))
+        addInCart: (name, description, price,id,count) => {
+            dispatch(addInCart(name, description, price,id,count))
         }
     }
 }

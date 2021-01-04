@@ -4,14 +4,14 @@ import React from "react";
 
 export default function ShopItem(props) {
 
-
     let actionClick = () => {
-        props.addInCart(props.price)
+        props.addInCart(props.name, props.description, props.price, props.id)
     }
 
     return (<div className={style.item}>
         <div className={style.content}>
             <img className={style.logo} src={logo} alt="Error"/>
+
 
             <div>Назва: {props.name}</div>
             <div>Опис: {props.description}</div>
