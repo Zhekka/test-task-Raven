@@ -87,7 +87,7 @@ const mainReducer = (state = initialState, action) => {
                  orderInfo: [...state.orderInfo, action.order, state.cartItems ,state.totalPrice],
              }
 
-            console.log(action.order)
+
             let orderRef = fire.database().ref('order').orderByKey().limitToLast(100)
             fire.database().ref('order').push(tempObj)
             return {
@@ -144,6 +144,8 @@ const mainReducer = (state = initialState, action) => {
                 }
             })
 
+
+
             return {
                 ...state,
                 cartItems: [...state.cartItems],
@@ -168,7 +170,6 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 cartItems: [...state.cartItems],
                 totalPrice: tempcount
-
             }
 
         }
