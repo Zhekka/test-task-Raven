@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Cart from "./Cart";
-import {addCount, minusItem} from "../../../redux/mainReducer";
+import {addCount, minusItem, setOrder} from "../../../redux/mainReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -19,6 +19,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         minusItem: (id, price) => {
             dispatch(minusItem(id, price))
+
+        },
+        setOrder: (order) => {
+            dispatch(setOrder(order))
 
         }
 

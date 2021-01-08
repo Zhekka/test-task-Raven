@@ -1,8 +1,10 @@
 import {act} from "@testing-library/react";
+import fire from "../firebase/firebase";
 
 const ADD_IN_CART = 'ADD_IN_CART'
 const PLUS = 'PLUS'
 const MINUS = 'MINUS'
+const SET_ORDER = 'SET_ORDER'
 
 let removeByAttr = function (arr, attr, value) {
     let i = arr.length;
@@ -17,6 +19,18 @@ let removeByAttr = function (arr, attr, value) {
     }
     return arr;
 }
+
+let saveStorage = (obj) => {
+
+    let serialObj = JSON.stringify(obj);
+
+    localStorage.setItem("myKey", serialObj);
+
+    let returnObj = JSON.parse(localStorage.getItem("myKey"))
+
+    console.log(returnObj)
+}
+
 
 let initialState = {
     items: [
@@ -61,11 +75,27 @@ let initialState = {
         },
     ],
     cartItems: [],
+    orderInfo: [],
     totalPrice: 0
 }
 
+
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ORDER: {
+             let tempObj = {
+                 orderInfo: [...state.orderInfo, action.order, state.cartItems ,state.totalPrice],
+             }
+
+            console.log(action.order)
+            let orderRef = fire.database().ref('order').orderByKey().limitToLast(100)
+            fire.database().ref('order').push(tempObj)
+            return {
+                 ...state,
+                 tempObj
+            }
+        }
+
         case ADD_IN_CART: {
 
             const {cartItems} = state;
@@ -88,13 +118,16 @@ const mainReducer = (state = initialState, action) => {
 
             }
 
+
             if (check) {
+
                 return {
                     ...state,
                     cartItems: [...state.cartItems, newCartItem],
                     totalPrice: state.totalPrice = state.totalPrice + action.data.price
                 }
             } else {
+
                 return {
                     ...state,
                     totalPrice: state.totalPrice = state.totalPrice + action.data.price
@@ -110,6 +143,7 @@ const mainReducer = (state = initialState, action) => {
                     tempcount += item.price
                 }
             })
+
             return {
                 ...state,
                 cartItems: [...state.cartItems],
@@ -129,6 +163,7 @@ const mainReducer = (state = initialState, action) => {
                     }
                 }
             })
+
             return {
                 ...state,
                 cartItems: [...state.cartItems],
@@ -152,6 +187,11 @@ export const addInCart = (name, description, price, id, count) => ({
 export const addCount = (id) => ({
     type: PLUS,
     id
+})
+
+export const setOrder = (order) => ({
+    type: SET_ORDER,
+    order
 })
 
 export const minusItem = (id, price) => ({

@@ -5,7 +5,7 @@ import BodyContainer from "./components/Body/BodyContainer";
 import HeadContainer from "./components/Header/HeadContainer";
 import CartContainer from "./components/Header/Cart/CartContainer";
 
-function App(props) {
+function App() {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
