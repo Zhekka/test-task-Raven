@@ -4,10 +4,8 @@ import style from './Body.module.css'
 
 function Body(props) {
 
-
-
     let shopElements = props.items.map((data) => {
-        return <ShopItem id={data.id} count={data.count} name={data.name} description={data.description} price={data.price} addInCart={props.addInCart}/>
+        return <ShopItem key={data.id} id={data.id} count={data.count} name={data.name} description={data.description} price={data.price} addInCart={props.addInCart}/>
     })
 
 

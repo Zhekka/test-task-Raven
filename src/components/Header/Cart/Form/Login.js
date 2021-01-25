@@ -5,9 +5,7 @@ import style from "./Login.module.css"
 function Login(props) {
 
     let onSubmit = (formData) => {
-        // console.log(formData)
         props.setOrder(formData)
-        //props.setOrder(formData)
     }
 
     return (

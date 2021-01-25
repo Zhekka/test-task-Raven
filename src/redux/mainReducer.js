@@ -1,4 +1,3 @@
-import {act} from "@testing-library/react";
 import fire from "../firebase/firebase";
 
 const ADD_IN_CART = 'ADD_IN_CART'
@@ -20,56 +19,44 @@ let removeByAttr = function (arr, attr, value) {
     return arr;
 }
 
-let saveStorage = (obj) => {
-
-    let serialObj = JSON.stringify(obj);
-
-    localStorage.setItem("myKey", serialObj);
-
-    let returnObj = JSON.parse(localStorage.getItem("myKey"))
-
-    console.log(returnObj)
-}
-
-
 let initialState = {
     items: [
         {
             id: 0,
-            name: 'Ручка',
-            description: 'Ручка темно синя',
+            name: 'Олівець',
+            description: 'Олівець звичайний',
             price: 25,
             count: 1
 
         },
         {
             id: 1,
-            name: 'Олівець',
-            description: 'Олівець графітовий',
+            name: 'Ручка',
+            description: 'Ручка синя',
             price: 10,
             count: 1
         }, {
             id: 2,
-            name: 'Гумка',
-            description: 'Гумка звичайна',
+            name: 'Пенал',
+            description: 'Пенал шкільний',
             price: 25,
             count: 1
         }, {
             id: 3,
-            name: 'Пенал',
-            description: 'Пенал шкільний',
+            name: 'Лінійка',
+            description: 'Лінійка 20см',
             price: 100,
             count: 1
         }, {
             id: 4,
-            name: 'Лінійка',
-            description: 'Лінійка 20 см, залізна',
+            name: 'Гумка',
+            description: 'Гумка кругла',
             price: 42,
             count: 1
         }, {
             id: 5,
-            name: 'Портфейль',
-            description: 'Портфель Мікі Маус',
+            name: 'Портфель',
+            description: 'Портфель Мікімаус',
             price: 560,
             count: 1
         },

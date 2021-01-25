@@ -6,7 +6,7 @@ import Login from "./Form/Login";
 export default function Cart(props) {
 
     let cartElement = props.cartItems.map((data) => {
-        return <CartItem id={data.id} minus={props.minusItem} plus={props.addCount} name={data.name}
+        return <CartItem key={data.id} id={data.id} minus={props.minusItem} plus={props.addCount} name={data.name}
                          description={data.description} price={data.price} count={data.count}/>
     })
 
